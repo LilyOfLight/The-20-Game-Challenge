@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://liw8fplckr7q"]
 
-[ext_resource type="PackedScene" uid="uid://c50kdd318s8nb" path="res://Assets/Scenes/level.tscn" id="1_kwblh"]
+[ext_resource type="PackedScene" uid="uid://c50kdd318s8nb" path="res://Assets/Scenes/level.tscn" id="1_t2ybm"]
 
 [node name="Main" type="Node" unique_id=2021932811]
 
-[node name="Level" parent="." unique_id=267929854 instance=ExtResource("1_kwblh")]
+[node name="Level" parent="." unique_id=267929854 instance=ExtResource("1_t2ybm")]
 
 [editable path="Level"]
