@@ -9,6 +9,8 @@ size = Vector2(50, 50)
 
 [node name="Player" type="CharacterBody2D" unique_id=355468201]
 script = ExtResource("1_543sj")
+flap_strength = 500
+gravity = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1099167928]
 modulate = Color(1, 1, 0.2901961, 1)
