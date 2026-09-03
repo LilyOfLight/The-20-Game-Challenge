@@ -1,4 +1,5 @@
-extends Node2D
+class_name Pipes extends Node2D 
+
 
 @onready var pipeT := get_node("pipeTop")
 @onready var pipeB := get_node("pipeBottom")

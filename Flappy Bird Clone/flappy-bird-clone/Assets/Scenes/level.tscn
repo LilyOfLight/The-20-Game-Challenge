@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://c50kdd318s8nb"]
 
 [ext_resource type="PackedScene" uid="uid://dxwqaq78so2h7" path="res://Assets/Scenes/player.tscn" id="1_5xcom"]
+[ext_resource type="Script" uid="uid://dcgn20a306ase" path="res://Assets/Scripts/level.gd" id="1_8kw0n"]
 
 [node name="Level" type="Node2D" unique_id=267929854]
+script = ExtResource("1_8kw0n")
 
 [node name="Player" parent="." unique_id=355468201 instance=ExtResource("1_5xcom")]
 position = Vector2(100, 450)
+
+[node name="Timer" type="Timer" parent="." unique_id=1441891014]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
