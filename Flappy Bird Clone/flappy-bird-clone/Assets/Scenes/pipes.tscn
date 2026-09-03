@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cgt7jx25o15yo" path="res://Assets/Scenes/pipe.tscn" id="1_4lgo5"]
 [ext_resource type="Script" uid="uid://x2fbv5bvruv3" path="res://Assets/Scripts/pipes.gd" id="1_eb0xa"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlpmn"]
+
 [node name="Pipes" type="Node2D" unique_id=2131166075]
 script = ExtResource("1_eb0xa")
 space = 125
@@ -12,3 +14,8 @@ moveSpeed = 5
 [node name="pipeTop" parent="." unique_id=158642179 instance=ExtResource("1_4lgo5")]
 
 [node name="pipeBottom" parent="." unique_id=1401519978 instance=ExtResource("1_4lgo5")]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1270383877]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=591713219]
+shape = SubResource("RectangleShape2D_qlpmn")

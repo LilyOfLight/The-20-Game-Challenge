@@ -1,7 +1,8 @@
 extends Node2D
 
-@onready var pipeT = get_node("pipeTop")
-@onready var pipeB = get_node("pipeBottom")
+@onready var pipeT := get_node("pipeTop")
+@onready var pipeB := get_node("pipeBottom")
+@onready var scoreArea := get_node("Area2D")
 @onready var screenSize := get_viewport().get_visible_rect().size
 
 @export var space: int ## For the space between the two pipes, in Px
@@ -26,12 +27,17 @@ func place_pipes() -> void:
 	# margin and screens height - margin, keeping the ends of the pipes in frame
 	var rn: int = rng.randi_range(margin,screenSize.y - margin) 
 	
+	# sets the collision rect to have a width of one and a size of 2*space. bassically fills one px worth of the empty space between the pipes
+	scoreArea.get_child(0).get_shape().set_size(Vector2(1, space * 2))
+	
+	
 	# moves the pipes off screen to the right, also moves to the random point where the pipes open
 	set_global_position(Vector2i(screenSize.x + 100, rn)) 
 	
 	# Adds the opening to the pipes
 	pipeT.set_position(Vector2i(0, -space - roundi(ptSize.y / 2))) 
-	pipeB.set_position(Vector2i(0, space + roundi(pbSize.y / 2))) 
+	pipeB.set_position(Vector2i(0, space + roundi(pbSize.y / 2)))
+	scoreArea.set_position(Vector2i(ptSize.x / 2, 0)) # places at the edge of the opening
 
 func move_pipes() -> void:
 	set_global_position(Vector2i(position.x - moveSpeed, position.y))
