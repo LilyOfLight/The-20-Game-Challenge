@@ -5,15 +5,34 @@ extends Node2D
 @onready var screenSize := get_viewport().get_visible_rect().size
 
 @export var space: int ## For the space between the two pipes, in Px
+@export var margin: int ## Limits how close the end of the pipes can get to the edges of the screen.
 @export var moveSpeed: int ## How fast the Pipes move towards the player
 
 var rng := RandomNumberGenerator.new()
 
 func _ready():
-	set_global_position(Vector2i(screenSize.x - 100, roundi(screenSize.y / 2)))
-	print(get_global_position())
-	pass
+	place_pipes()
 	
-func place_pipes():
-	var rn: int = rng.randi_range(1,50)
-	pass
+func _physics_process(delta: float) -> void:
+	move_pipes()
+	if(get_global_position().x < -100):
+		queue_free()
+	
+func place_pipes() -> void:
+	var ptSize = pipeT.get_node("CollisionShape2D").shape.get_rect().size
+	var pbSize = pipeB.get_node("CollisionShape2D").shape.get_rect().size
+	
+	# generates a random int for where the pipes should be placed between the
+	# margin and screens height - margin, keeping the ends of the pipes in frame
+	var rn: int = rng.randi_range(margin,screenSize.y - margin) 
+	
+	# moves the pipes off screen to the right, also moves to the random point where the pipes open
+	set_global_position(Vector2i(screenSize.x + 100, rn)) 
+	
+	# Adds the opening to the pipes
+	pipeT.set_position(Vector2i(0, -space - roundi(ptSize.y / 2))) 
+	pipeB.set_position(Vector2i(0, space + roundi(pbSize.y / 2))) 
+
+func move_pipes() -> void:
+	set_global_position(Vector2i(position.x - moveSpeed, position.y))
+	

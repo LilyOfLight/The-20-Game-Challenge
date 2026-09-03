@@ -3,7 +3,7 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_cbw1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsoxd"]
-size = Vector2(23.599998, 200.79999)
+size = Vector2(114, 1004)
 
 [node name="Pipe" type="StaticBody2D" unique_id=158642179]
 
@@ -13,5 +13,4 @@ scale = Vector2(116.50001, 1006.49994)
 texture = SubResource("CanvasTexture_cbw1c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=571854257]
-scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_hsoxd")
