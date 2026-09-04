@@ -43,3 +43,8 @@ func place_pipes() -> void:
 func move_pipes() -> void:
 	set_global_position(Vector2i(position.x - moveSpeed, position.y))
 	
+
+# checks if the player has entered the score area and emit that it did, then disables itself
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	SignalBus.pointScored.emit()
+	scoreArea.set_disable_mode(true)

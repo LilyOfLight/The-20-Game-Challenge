@@ -6,4 +6,8 @@
 
 [node name="Level" parent="." unique_id=267929854 instance=ExtResource("1_t2ybm")]
 
+[node name="Score" parent="Level" index="0" unique_id=911495090]
+z_index = 1
+text = ""
+
 [editable path="Level"]
