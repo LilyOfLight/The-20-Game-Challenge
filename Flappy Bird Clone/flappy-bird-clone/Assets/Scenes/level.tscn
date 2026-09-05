@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dxwqaq78so2h7" path="res://Assets/Scenes/player.tscn" id="1_5xcom"]
 [ext_resource type="Script" uid="uid://dcgn20a306ase" path="res://Assets/Scripts/level.gd" id="1_8kw0n"]
 [ext_resource type="Script" uid="uid://cho3fve7duaa6" path="res://Assets/Scripts/score.gd" id="3_yn0lr"]
+[ext_resource type="PackedScene" uid="uid://ethidgjhk53u" path="res://Assets/Scenes/pause_game.tscn" id="4_jviae"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qlpmn"]
 font_size = 40
@@ -28,5 +29,8 @@ position = Vector2(100, 450)
 
 [node name="Timer" type="Timer" parent="." unique_id=1441891014]
 wait_time = 3.0
+
+[node name="PauseMenu" parent="." unique_id=1039574929 instance=ExtResource("4_jviae")]
+process_mode = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

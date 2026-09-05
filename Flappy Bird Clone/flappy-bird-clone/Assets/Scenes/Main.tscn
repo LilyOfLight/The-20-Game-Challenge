@@ -10,4 +10,7 @@
 z_index = 1
 text = ""
 
+[node name="Timer" parent="Level" index="2" unique_id=1441891014]
+wait_time = 2.0
+
 [editable path="Level"]
