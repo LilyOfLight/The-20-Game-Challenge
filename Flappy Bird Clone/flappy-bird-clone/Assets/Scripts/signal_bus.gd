@@ -3,3 +3,4 @@ extends Node
 
 signal pointScored
 signal playerDied
+signal restart

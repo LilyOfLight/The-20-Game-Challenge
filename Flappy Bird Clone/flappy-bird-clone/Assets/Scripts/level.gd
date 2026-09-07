@@ -5,6 +5,7 @@ extends Node2D
 
 #spawns the first set of pipes, and starts the timer for the next should spawn
 func _ready() -> void:
+	SignalBus.restart.connect(_restart)
 	spawnPipes()
 
 
@@ -16,3 +17,6 @@ func spawnPipes() -> void:
 	spawnTimer.start()
 	var pi: Pipes = pipes.instantiate()
 	add_child(pi)
+	
+func _restart():
+	get_tree().reload_current_scene.call_deferred()

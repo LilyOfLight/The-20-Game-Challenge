@@ -1,15 +1,28 @@
 extends CanvasLayer
 
-@export var can_pause: bool = true
+@export var paused: bool = false
+var pccp: bool = true # pccp = player can change pause
+
+func _ready() -> void:
+	SignalBus.playerDied.connect(_died)
+	SignalBus.restart.connect(_restart)
+	pass
 
 func _process(_delta) -> void:
-	if Input.is_action_just_pressed("Pause") and can_pause:
-		pause()
-	
-	
-# Check if the game is paused or not, then pauses or unpauses depend on the state.	
-func pause() -> void:
-	if get_tree().paused == false:
-		get_tree().paused = true # pause
-	else:
-		get_tree().paused = false # unpause
+	if Input.is_action_just_pressed("Pause") and pccp:
+		paused = !paused # what ever the inverse is
+		pause(paused)
+
+# paused the game based on what bool is passed
+func pause(p: bool) -> void:
+		get_tree().paused = p 
+		paused = p
+		
+func _died() -> void:
+	pccp = false
+	pause(true)
+	pass
+
+func _restart() -> void:
+	pccp = true
+	pause(false)

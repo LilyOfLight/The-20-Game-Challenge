@@ -13,3 +13,9 @@ func _ready() -> void:
 func _point_scored() -> void:
 	score += 1
 	set_text("Score: " + str(score))
+	high_score()
+	
+	
+func high_score() -> void:
+	if score > GlobalVars.high_score:
+		GlobalVars.high_score = score
