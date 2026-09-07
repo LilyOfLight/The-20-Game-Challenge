@@ -1,8 +1,9 @@
 extends CanvasLayer
 
+@export var can_pause: bool = true
 
 func _process(_delta) -> void:
-	if Input.is_action_just_pressed("Pause"):
+	if Input.is_action_just_pressed("Pause") and can_pause:
 		pause()
 	
 	
