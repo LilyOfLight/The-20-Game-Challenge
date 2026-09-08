@@ -1,9 +1,33 @@
 [gd_scene format=3 uid="uid://liw8fplckr7q"]
 
 [ext_resource type="PackedScene" uid="uid://c50kdd318s8nb" path="res://Assets/Scenes/level.tscn" id="1_t2ybm"]
+[ext_resource type="PackedScene" uid="uid://m1skovbbdrcr" path="res://Assets/Scenes/start_screen.tscn" id="2_2qpql"]
+[ext_resource type="PackedScene" uid="uid://cr3oh60pp0rki" path="res://Assets/Scenes/death_scene.tscn" id="2_ygaiq"]
 
 [node name="Main" type="Node" unique_id=2021932811]
+process_mode = 3
+
+[node name="Background" type="ColorRect" parent="." unique_id=515406697]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(5.390644e-06, 0.7555734, 0.76232743, 1)
+
+[node name="StartScreen" parent="." unique_id=1890670884 instance=ExtResource("2_2qpql")]
+
+[node name="Death_scene" parent="." unique_id=2132293945 instance=ExtResource("2_ygaiq")]
 
 [node name="Level" parent="." unique_id=267929854 instance=ExtResource("1_t2ybm")]
+process_mode = 1
+
+[node name="Score" parent="Level" index="0" unique_id=911495090]
+z_index = 1
+text = ""
+
+[node name="Timer" parent="Level" index="2" unique_id=1441891014]
+wait_time = 2.0
 
 [editable path="Level"]

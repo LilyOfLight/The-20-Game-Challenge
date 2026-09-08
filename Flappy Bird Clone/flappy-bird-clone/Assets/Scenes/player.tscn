@@ -8,6 +8,7 @@
 size = Vector2(50, 50)
 
 [node name="Player" type="CharacterBody2D" unique_id=355468201]
+collision_layer = 3
 script = ExtResource("1_543sj")
 flap_strength = 500
 gravity = 20

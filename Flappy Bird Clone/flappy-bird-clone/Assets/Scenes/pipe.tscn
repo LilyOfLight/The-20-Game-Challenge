@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cgt7jx25o15yo"]
+
+[ext_resource type="Script" uid="uid://brwvgkpv7efx6" path="res://Assets/Scripts/pipe.gd" id="1_qv5r7"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cbw1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsoxd"]
+size = Vector2(114, 1004)
+
+[node name="Pipe" type="Area2D" unique_id=825988511]
+script = ExtResource("1_qv5r7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=280510428]
+modulate = Color(0.1327242, 0.5331807, 0.16027316, 1)
+scale = Vector2(116.50001, 1006.49994)
+texture = SubResource("CanvasTexture_cbw1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=571854257]
+shape = SubResource("RectangleShape2D_hsoxd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
