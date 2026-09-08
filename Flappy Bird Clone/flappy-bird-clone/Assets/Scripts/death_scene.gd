@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Control
 
 var hs_label: Label
 
