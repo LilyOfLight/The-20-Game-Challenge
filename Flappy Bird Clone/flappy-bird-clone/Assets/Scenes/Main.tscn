@@ -7,7 +7,7 @@
 [node name="Main" type="Node" unique_id=2021932811]
 process_mode = 3
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=515406697]
+[node name="Background" type="ColorRect" parent="." unique_id=515406697]
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
